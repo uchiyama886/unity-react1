@@ -2,10 +2,10 @@ import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
 const unityContext = new UnityContext({
-    loaderUrl: "/public/Build/fuusenn.loader.js",
-    dataUrl: "/public/Build/fuusenn.data.unityweb",
-    frameworkUrl: "/public/Build/fuusenn.framework.js.unityweb",
-    codeUrl: "/public/Build/fuusenn.wasm.unityweb",
+    loaderUrl: "Build/fuusenn.loader.js",
+    dataUrl: "Build/fuusenn.data",
+    frameworkUrl: "Build/fuusenn.framework.js",
+    codeUrl: "Build/fuusenn.wasm",
 });
 function GamePage1() {
     return (
