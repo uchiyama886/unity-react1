@@ -31,12 +31,14 @@ function GamePage1() {
 
     return (
         <div>
-            <Unity unityContext={unityContext} style={{
-                height: "100%",
-                width: 400,
-                border: "2px solid black",
-                background: "grey",
-            }} />
+            <Fragment>
+                <Unity unityContext={unityContext} style={{
+                    height: "100%",
+                    width: 400,
+                    border: "2px solid black",
+                    background: "grey",
+                }} />
+            </Fragment>
         </div>
     );
 }
