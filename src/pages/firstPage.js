@@ -13,14 +13,19 @@ import { usePlayer } from "../PlayerConfig";
 
 function FirstPage() {
     const navigate = useNavigate();
-    const [playerNum, setPlayerNum, name, setName] = usePlayer();
+    const [playerNum, setPlayerNum, names, setName, updateNames] = usePlayer();
 
     const handleToggleChange = (event) => {
-        setPlayerNum(event.target.value);
+        const num = parseInt(event.target.value, 10);
+        setPlayerNum(num);
+        updateNames(num);
     };
 
-    const handleNameChange = (event) => {
-        setName(event.target.value);
+    const handleNameChange = (index) => (event) => {
+        const newNames = [...names];
+        newNames[index] = event.target.value;
+        setName(newNames);
+
     }
 
     const navigateToGamePage1 = () => {
@@ -60,17 +65,19 @@ function FirstPage() {
                         ))}
                     </Select>
                 </Box>
-                <Box>
-                    <label htmlFor="name">名前を入力してください: </label>
-                    <Input
-                        id="name"
-                        value={name}
-                        onChange={handleNameChange}
-                        width="auto"
-                        display="inline-block"
-                        ml="2"
-                    />
-                </Box>
+                {names.map((name, index) => (
+                    <Box key={index} mb="10px">
+                        <label htmlFor={`name-${index}`}>プレイヤー{index + 1}の名前: </label>
+                        <Input
+                            id={`name-${index}`}
+                            value={name}
+                            onChange={handleNameChange(index)}
+                            width="auto"
+                            display="inline-block"
+                            ml="2"
+                        />
+                    </Box>
+                ))}
             </Center>
         </ChakraProvider>
     );

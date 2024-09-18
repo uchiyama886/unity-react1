@@ -1,3 +1,48 @@
+// import React, { Fragment, useState } from "react";
+// import Unity, { UnityContext } from "react-unity-webgl";
+
+// const unityContext = new UnityContext({
+//     loaderUrl: "Build/fuusenn.loader.js",
+//     dataUrl: "Build/fuusenn.data",
+//     frameworkUrl: "Build/fuusenn.framework.js",
+//     codeUrl: "Build/fuusenn.wasm",
+// });
+
+// function GamePage1() {
+//     const [fsEvent, setFsEvent] = useState(false);
+
+//     function Fullscreen() {
+//         const unityInstance = unityContext.unityInstance;
+//         if (!fsEvent) {
+//             unityInstance.SetFullscreen(1);
+//             setFsEvent(true);
+//         }
+//         else {
+//             unityInstance.SetFullscreen(0);
+//             setFsEvent(false);
+//         }
+//     }
+
+//     window.addEventListener("keydown", function (event) {
+//         if (event.key === "f") {
+//             Fullscreen(fsEvent);
+//         }
+//     });
+
+
+// return (
+//     <div>
+//         <Fragment>
+//             <Unity unityContext={unityContext} style={{
+//                 height: "100%",
+//                 width: 400,
+//                 border: "2px solid black",
+//                 background: "grey",
+//             }} />
+//         </Fragment>
+//     </div>
+// );
+
 import React, { Fragment, useState } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
@@ -7,8 +52,8 @@ const unityContext = new UnityContext({
     frameworkUrl: "Build/fuusenn.framework.js",
     codeUrl: "Build/fuusenn.wasm",
 });
-function GamePage1() {
 
+function GamePage1({ id }) {
     const [fsEvent, setFsEvent] = useState(false);
 
     function Fullscreen() {
@@ -16,8 +61,7 @@ function GamePage1() {
         if (!fsEvent) {
             unityInstance.SetFullscreen(1);
             setFsEvent(true);
-        }
-        else {
+        } else {
             unityInstance.SetFullscreen(0);
             setFsEvent(false);
         }
@@ -43,4 +87,19 @@ function GamePage1() {
     );
 }
 
-export default GamePage1;
+function GameContainer() {
+    const [currentGameId, setCurrentGameId] = useState(0);
+
+    function showNewGameInstance() {
+        setCurrentGameId(currentGameId + 1);
+    }
+
+    return (
+        <div>
+            <button onClick={showNewGameInstance}>Show New Game Instance</button>
+            <GamePage1 key={currentGameId} id={currentGameId} />
+        </div>
+    );
+}
+
+export default GameContainer;
