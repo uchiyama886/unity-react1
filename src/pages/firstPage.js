@@ -7,9 +7,11 @@ import {
     Button,
     Select,
     Center,
-    Input
+    Input,
+    Text
 } from "@chakra-ui/react";
 import { usePlayer } from "./PlayerConfig";
+import ReactPlayer from "react-player";
 
 function FirstPage() {
     const navigate = useNavigate();
@@ -87,6 +89,15 @@ function FirstPage() {
                         />
                     </Box>
                 ))}
+                <ReactPlayer
+                    url="../ sounds / Shall_we_meet？.mp3"
+                    playing={true}
+                    loop={true}
+                    volume={0.2}
+                />
+                <Text position="absolute" bottom="10px" right="10px" fontSize="sm" color="gray.500">
+                    BGM: Shall we meet?
+                </Text>
             </Center>
         </ChakraProvider>
     );
