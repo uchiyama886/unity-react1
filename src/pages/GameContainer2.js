@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { usePlayer } from "./PlayerConfig";
 import GamePage2 from "./gamePage2";
 import { useNavigate } from "react-router-dom";
-import { use } from "framer-motion/client";
 
 function GameContainer2() {
     const [currentGameId, setCurrentGameId] = useState(0);

@@ -11,7 +11,7 @@ const unityContext = new UnityContext({
 
 function GamePage1({ id }) {
     const [fsEvent, setFsEvent] = useState(false);
-    const [playerNum, , name] = usePlayer();
+    const [, , name] = usePlayer();
 
     function Fullscreen() {
         const unityInstance = unityContext.unityInstance;
@@ -38,7 +38,7 @@ function GamePage1({ id }) {
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
         };
-    }, [fsEvent]);
+    });
 
     return (
         <div>
