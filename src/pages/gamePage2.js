@@ -3,10 +3,10 @@ import { usePlayer } from "./PlayerConfig";
 import Unity, { UnityContext } from "react-unity-webgl";
 
 const unityContext = new UnityContext({
-    loaderUrl: "Build/timinggame.loader.js",
-    dataUrl: "Build/timinggame.data",
-    frameworkUrl: "Build/timinggame.framework.js",
-    codeUrl: "Build/timinggame.wasm",
+    loaderUrl: "Build/タイミングゲーム.loader.js",
+    dataUrl: "Build/タイミングゲーム.data",
+    frameworkUrl: "Build/タイミングゲーム.framework.js",
+    codeUrl: "Build/タイミングゲーム.wasm",
 });
 
 function GamePage2({ id }) {
