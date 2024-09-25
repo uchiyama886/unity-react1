@@ -48,7 +48,7 @@ function App() {
           </Router>
         </PlayerProvider>
       </ChakraProvider>
-    </ErrorBoundary>
+    </ErrorBoundary >
   );
 }
 
