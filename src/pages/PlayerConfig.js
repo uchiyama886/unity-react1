@@ -4,10 +4,10 @@ const PlayerContext = createContext();
 
 export const PlayerProvider = ({ children }) => {
     const [playerNum, setPlayerNum] = useState(2);
-    const [name, setName] = useState(Array(2).fill(""));
+    const [names, setNames] = useState(Array(2).fill(""));
 
     const updateNames = (num) => {
-        setName((prevNames) => {
+        setNames((prevNames) => {
             const newNames = [...prevNames];
             if (num > newNames.length) {
                 for (let i = newNames.length; i < num; i++) {
@@ -20,8 +20,13 @@ export const PlayerProvider = ({ children }) => {
         });
     };
 
+    const updatePlayerNum = (num) => {
+        setPlayerNum(num);
+        updateNames(num);
+    };
+
     return (
-        <PlayerContext.Provider value={[playerNum, setPlayerNum, name, setName, updateNames]}>
+        <PlayerContext.Provider value={[playerNum, updatePlayerNum, names, setNames]}>
             {children}
         </PlayerContext.Provider>
     );
