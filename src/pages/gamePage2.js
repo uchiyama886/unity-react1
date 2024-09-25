@@ -3,10 +3,10 @@ import { usePlayer } from "./PlayerConfig";
 import Unity, { UnityContext } from "react-unity-webgl";
 
 const unityContext = new UnityContext({
-    loaderUrl: "Build/timinggame.loader.js",
-    dataUrl: "Build/timinggame.data",
-    frameworkUrl: "Build/timinggame.framework.js",
-    codeUrl: "Build/timinggame.wasm",
+    loaderUrl: "Build/タイミングゲーム.loader.js",
+    dataUrl: "Build/タイミングゲーム.data",
+    frameworkUrl: "Build/タイミングゲーム.framework.js",
+    codeUrl: "Build/タイミングゲーム.wasm",
 });
 
 function GamePage2({ id }) {
@@ -39,9 +39,9 @@ function GamePage2({ id }) {
 
     return (
         <div>
-            <h2>Current Game ID: {id}</h2>
-            <h3>Player Name: {name[id - 1]}</h3>
-            <button onClick={Fullscreen}> {fsEvent ? "Exit FullScreen" : "Enter FullScreen"} </button>
+            <h2>No.{id}</h2>
+            <h3>{name[id - 1]}さん</h3>
+            <button onClick={Fullscreen}> {fsEvent ? "フルスクリーン解除" : "フルスクリーン"} </button>
             <Fragment>
                 <Unity unityContext={unityContext} style={{
                     height: "100%",
