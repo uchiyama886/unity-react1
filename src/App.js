@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import FirstPage from "./pages/firstPage";
-import GamePage1 from "./pages/gamePage1";
-import GamePage2 from "./pages/gamePage2";
 import GamePage3 from "./pages/gamePage3";
 import { ChakraProvider } from "@chakra-ui/react";
+import GameContainer1 from "./pages/GameContainer1";
+import GameContainer2 from "./pages/GameContainer2";
+import { PlayerProvider } from "./pages/PlayerConfig";
 
 
 class ErrorBoundary extends React.Component {
@@ -34,14 +35,16 @@ function App() {
   return (
     <ErrorBoundary>
       <ChakraProvider>
-        <Router>
-          <Routes>
-            <Route path="/" element={<FirstPage />} />
-            <Route path="/gamePage1" element={<GamePage1 />} />
-            <Route path="/gamePage2" element={<GamePage2 />} />
-            <Route path="/gamePage3" element={<GamePage3 />} />
-          </Routes>
-        </Router>
+        <PlayerProvider>
+          <Router>
+            <Routes>
+              <Route path="/" element={<FirstPage />} />
+              <Route path="/Page1" element={<GameContainer1 />} />
+              <Route path="/Page2" element={<GameContainer2 />} />
+              <Route path="/Page3" element={<GamePage3 />} />
+            </Routes>
+          </Router>
+        </PlayerProvider>
       </ChakraProvider>
     </ErrorBoundary>
   );

@@ -1,0 +1,164 @@
+// import React, { Fragment, useState, useEffect } from "react";
+// import Unity, { UnityContext } from "react-unity-webgl";
+
+// const unityContext = new UnityContext({
+//     loaderUrl: "Build/fuusenn.loader.js",
+//     dataUrl: "Build/fuusenn.data",
+//     frameworkUrl: "Build/fuusenn.framework.js",
+//     codeUrl: "Build/fuusenn.wasm",
+// });
+
+// function GameContainer() {
+//     const [currentGameId, setCurrentGameId] = useState(0);
+//     const [showGamePage, setShowGamePage] = useState(false);
+
+//     function showNewGameInstance() {
+//         setCurrentGameId(currentGameId + 1);
+//         setShowGamePage(true);
+//     }
+
+//     return (
+//         <div>
+//             <button onClick={showNewGameInstance}>Load GamePage1</button>
+//             {showGamePage && <GamePage1 key={currentGameId} id={currentGameId} />}
+//         </div>
+//     );
+// }
+
+// function GamePage1({ id }) {
+//     const [fsEvent, setFsEvent] = useState(false);
+
+//     function Fullscreen() {
+//         const unityInstance = unityContext.unityInstance;
+//         if (!fsEvent) {
+//             unityInstance.SetFullscreen(1);
+//             setFsEvent(true);
+//         } else {
+//             unityInstance.SetFullscreen(0);
+//             setFsEvent(false);
+//         }
+//     }
+
+//     useEffect(() => {
+//         const handleKeyDown = (event) => {
+//             if (event.key === "f" || event.key === "F") {
+//                 Fullscreen();
+//             }
+//         };
+
+//         window.addEventListener("keydown", handleKeyDown);
+//         return () => {
+//             window.removeEventListener("keydown", handleKeyDown);
+//         };
+//     }, [fsEvent]);
+
+//     return (
+//         <div>
+//             <h2>User Id: {id}</h2>
+//             <button onClick={Fullscreen}> {fsEvent ? "Exit FullScreen" : "Enter FullScreen"} </button>
+//             <Fragment>
+//                 <Unity unityContext={unityContext} style={{
+//                     height: "100%",
+//                     width: 400,
+//                     border: "2px solid black",
+//                     background: "grey",
+//                 }} />
+//             </Fragment>
+//         </div>
+//     );
+// }
+
+// export default GameContainer;
+
+
+// import React, { Fragment, useState, useEffect } from "react";
+// import Unity, { UnityContext } from "react-unity-webgl";
+// import { PlayerProvider, usePlayer } from "../PlayerConfig"
+// import FirstPage from "./firstPage";
+
+// const unityContext = new UnityContext({
+//     loaderUrl: "Build/fuusenn.loader.js",
+//     dataUrl: "Build/fuusenn.data",
+//     frameworkUrl: "Build/fuusenn.framework.js",
+//     codeUrl: "Build/fuusenn.wasm",
+// });
+
+// function GameContainer() {
+//     const [currentGameId, setCurrentGameId] = useState(0);
+//     const [showGamePage, setShowGamePage] = useState(false);
+//     const [playerNum, updatePlayerNum] = usePlayer(); // usePlayerフックの使用
+
+
+//     function showNewGameInstance() {
+//         setCurrentGameId(currentGameId + 1);
+//         setShowGamePage(true);
+//     }
+
+//     return (
+//         // <PlayerProvider>
+//         //     <div>
+//         //         <button onClick={showNewGameInstance}>Load GamePage1</button>
+//         //         <FirstPage />
+//         //         {showGamePage && <GamePage1 key={currentGameId} id={currentGameId} />}
+//         //     </div>
+//         // </PlayerProvider>
+//         <PlayerProvider>
+//             <div>
+//                 {currentGameId !== playerNum ? (
+//                     <button onClick={showNewGameInstance}>Load GamePage1</button>
+//                 ) : (
+//                     <button onClick={() => alert("Player number matches current game ID!")}>Player Number Matched</button>
+//                 )}
+//                 <FirstPage /> {/* FirstPageコンポーネントを追加 */}
+//                 {showGamePage && <GamePage1 key={currentGameId} id={currentGameId} />}
+//             </div>
+//         </PlayerProvider>
+//     );
+// }
+
+// function GamePage1({ id }) {
+//     const [fsEvent, setFsEvent] = useState(false);
+//     const [playerNum, , name] = usePlayer(); // usePlayerフックの使用
+
+//     function Fullscreen() {
+//         const unityInstance = unityContext.unityInstance;
+//         if (!fsEvent) {
+//             unityInstance.SetFullscreen(1);
+//             setFsEvent(true);
+//         } else {
+//             unityInstance.SetFullscreen(0);
+//             setFsEvent(false);
+//         }
+//     }
+
+//     useEffect(() => {
+//         const handleKeyDown = (event) => {
+//             if (event.key === "f" || event.key === "F") {
+//                 Fullscreen();
+//             }
+//         };
+
+//         window.addEventListener("keydown", handleKeyDown);
+//         return () => {
+//             window.removeEventListener("keydown", handleKeyDown);
+//         };
+//     }, [fsEvent]);
+
+//     return (
+//         <div>
+//             <h2>Current Game ID: {id}</h2>
+//             <h3>Player Name: {name[id]}</h3>
+//             <button onClick={Fullscreen}> {fsEvent ? "Exit FullScreen" : "Enter FullScreen"} </button>
+//             <Fragment>
+//                 <Unity unityContext={unityContext} style={{
+//                     height: "100%",
+//                     width: 400,
+//                     border: "2px solid black",
+//                     background: "grey",
+//                 }} />
+//             </Fragment>
+//         </div>
+//     );
+// }
+
+// export default GameContainer;
