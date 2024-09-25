@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import FirstPage from "./pages/firstPage";
-import GamePage3 from "./pages/gamePage3";
 import { ChakraProvider } from "@chakra-ui/react";
 import GameContainer1 from "./pages/GameContainer1";
 import GameContainer2 from "./pages/GameContainer2";

@@ -39,9 +39,9 @@ function GamePage2({ id }) {
 
     return (
         <div>
-            <h2>Current Game ID: {id}</h2>
-            <h3>Player Name: {name[id - 1]}</h3>
-            <button onClick={Fullscreen}> {fsEvent ? "Exit FullScreen" : "Enter FullScreen"} </button>
+            <h2>No.{id}</h2>
+            <h3>{name[id - 1]}さん</h3>
+            <button onClick={Fullscreen}> {fsEvent ? "フルスクリーン解除" : "フルスクリーン"} </button>
             <Fragment>
                 <Unity unityContext={unityContext} style={{
                     height: "100%",
