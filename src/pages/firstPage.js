@@ -34,6 +34,10 @@ function FirstPage() {
         navigate("Page2");
     };
 
+    const navigateToTutorial = () => {
+        navigate("Tutorial");
+    }
+
     return (
         <ChakraProvider>
             <Center mt="50px" flexDirection="column">
@@ -45,6 +49,12 @@ function FirstPage() {
                     <Button colorScheme="green" onClick={navigateToGamePage2}>
                         ゲームページ2へ
                     </Button>
+                    <br /><br />
+                    <center>
+                        <Button colorScheme="yellow" onClick={navigateToTutorial}>
+                            ゲームチュートリアルへ
+                        </Button>
+                    </center>
                 </Box>
                 <Box>
                     <label htmlFor="toggle">参加人数: </label>
@@ -66,7 +76,7 @@ function FirstPage() {
                 <br></br>
                 {Array.isArray(names) && names.map((name, index) => (
                     <Box key={index} mb="10px">
-                        <label htmlFor={`name-${index}`}>プレイヤー{index + 1}の名前: </label>
+                        <label htmlFor={`name-${index}`}>No.{index + 1}の名前: </label>
                         <Input
                             id={`name-${index}`}
                             value={name}

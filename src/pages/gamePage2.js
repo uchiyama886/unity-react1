@@ -11,7 +11,7 @@ const unityContext = new UnityContext({
 
 function GamePage2({ id }) {
     const [fsEvent, setFsEvent] = useState(false);
-    const [playerNum, , name] = usePlayer(); // usePlayerフックの使用
+    const [, , name] = usePlayer(); // usePlayerフックの使用
 
     function Fullscreen() {
         const unityInstance = unityContext.unityInstance;
@@ -35,7 +35,7 @@ function GamePage2({ id }) {
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
         };
-    }, [fsEvent]);
+    });
 
     return (
         <div>
