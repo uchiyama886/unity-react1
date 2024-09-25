@@ -11,7 +11,7 @@ const unityContext = new UnityContext({
 
 function GamePage1({ id }) {
     const [fsEvent, setFsEvent] = useState(false);
-    const [playerNum, , name] = usePlayer(); // usePlayerフックの使用
+    const [playerNum, , name] = usePlayer();
 
     function Fullscreen() {
         const unityInstance = unityContext.unityInstance;

@@ -4,6 +4,8 @@ import FirstPage from "./pages/firstPage";
 import { ChakraProvider } from "@chakra-ui/react";
 import GameContainer1 from "./pages/GameContainer1";
 import GameContainer2 from "./pages/GameContainer2";
+import Tutorial from "./pages/tutorial";
+import LastPage from "./pages/lastPage";
 import { PlayerProvider } from "./pages/PlayerConfig";
 
 
@@ -40,6 +42,8 @@ function App() {
               <Route path="/" element={<FirstPage />} />
               <Route path="/Page1" element={<GameContainer1 />} />
               <Route path="/Page2" element={<GameContainer2 />} />
+              <Route path="/Tutorial" element={<Tutorial />} />
+              <Route path="/LastPage" element={<LastPage />} />
             </Routes>
           </Router>
         </PlayerProvider>

@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 import { usePlayer } from "./PlayerConfig";
 import GamePage2 from "./gamePage2";
+import { useNavigate } from "react-router-dom";
+import { use } from "framer-motion/client";
 
 function GameContainer2() {
     const [currentGameId, setCurrentGameId] = useState(0);
     const [showGamePage, setShowGamePage] = useState(false);
     const [playerNum] = usePlayer();
+    const navigate = useNavigate();
 
 
     function showNewGameInstance() {
         setCurrentGameId(currentGameId + 1);
         setShowGamePage(true);
+    }
+
+    function navigateToLastPage() {
+        navigate("/LastPage");
     }
 
     return (
@@ -19,11 +26,11 @@ function GameContainer2() {
                 {currentGameId !== playerNum ? (
                     <button onClick={showNewGameInstance}>ゲーム開始!</button>
                 ) : (
-                    <button onClick={() => alert("Player number matches current game ID!")}>次へ</button>
+                    <button onClick={navigateToLastPage}>次へ</button>
                 )}
                 {showGamePage && <GamePage2 key={currentGameId} id={currentGameId} />}
             </center>
-        </div>
+        </div >
     );
 }
 export default GameContainer2;
