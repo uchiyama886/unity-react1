@@ -1,6 +1,14 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { usePlayer } from "./PlayerConfig";
 import Unity, { UnityContext } from "react-unity-webgl";
+import {
+    ChakraProvider,
+    Box,
+    Heading,
+    Button,
+    Center,
+    Text
+} from "@chakra-ui/react";
 
 const unityContext = new UnityContext({
     loaderUrl: "Build/タイミングゲーム.loader.js",
@@ -38,19 +46,21 @@ function GamePage2({ id }) {
     });
 
     return (
-        <div>
-            <h2>No.{id}</h2>
-            <h3>{name[id - 1]}さん</h3>
-            <button onClick={Fullscreen}> {fsEvent ? "フルスクリーン解除" : "フルスクリーン"} </button>
-            <Fragment>
-                <Unity unityContext={unityContext} style={{
-                    height: "100%",
-                    width: 500,
-                    border: "2px solid black",
-                    background: "grey",
-                }} />
-            </Fragment>
-        </div>
+        <ChakraProvider>
+            <Center flexDirection="column" mt="20px">
+                <Text fontSize="xl" mb="10px">No.{id}</Text>
+                <Heading as="h2" size="lg" mb="10px">{name[id - 1]}さん</Heading>
+                <Button onClick={Fullscreen} mb="20px">
+                    {fsEvent ? "フルスクリーン解除" : "Fボタン:フルスクリーン"}
+                </Button>
+                <Box border="2px solid black" bg="gray.200" p="10px">
+                    <Unity unityContext={unityContext} style={{
+                        height: "100%",
+                        width: 700,
+                    }} />
+                </Box>
+            </Center>
+        </ChakraProvider>
     );
 }
 
