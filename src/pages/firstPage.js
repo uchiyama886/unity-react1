@@ -43,7 +43,7 @@ function FirstPage() {
     return (
         <ChakraProvider>
             <Center mt="50px" flexDirection="column">
-                <Heading mb="20px">ゲームのタイトル画面</Heading>
+                <Heading mb="20px">ひとりひとりに与えられた数字の大きさをゲームのうまさで表して、協力して数字順に並べられたら全員優勝するゲーム</Heading>
                 <Box mb="20px">
                     <Button colorScheme="blue" onClick={navigateToGamePage1} mr="4">
                         ゲームページ1へ
