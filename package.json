@@ -20,15 +20,17 @@
     "use-sound": "^4.0.3",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://uchiyama886.github.io/unity-react1/",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "rm": "rm -rf docs",
+    "mv": "mv build docs",
+    "git": "git add . && git commit && git push origin master",
+    "deploy": "npm run rm && npm run build && npm run mv && npm run git"
   },
+  "homepage": "https://uchiyama886.github.io/unity-react1/",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -46,8 +48,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^6.1.1"
   }
 }
