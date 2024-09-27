@@ -55,7 +55,7 @@ function GamePage2({ id }) {
                 </Button>
                 <Box border="2px solid black" bg="gray.200" p="10px">
                     <Unity unityContext={unityContext} style={{
-                        height: "100%",
+                        height: "60vh",
                         width: 700,
                     }} />
                 </Box>
