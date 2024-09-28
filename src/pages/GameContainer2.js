@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { usePlayer } from "./PlayerConfig";
 import GamePage2 from "./gamePage2";
-import shot from "../images/shot.png";
 import { useNavigate } from "react-router-dom";
-import { ChakraProvider, Box, Button, Center, Image } from "@chakra-ui/react";
+import {
+	ChakraProvider,
+	Box,
+	Button,
+	Center,
+	Text
+} from "@chakra-ui/react";
 
 function GameContainer2() {
 	const [currentGameId, setCurrentGameId] = useState(0);
@@ -38,7 +43,13 @@ function GameContainer2() {
 					<GamePage2 key={currentGameId} id={currentGameId} />
 				)}
 				{currentGameId === 0 ? (
-					<Image src={shot} width={500} alt="" />
+					<Box width={500} textAlign="center">
+						<Text fontSize="xl">・ひとりずつあそんでください</Text>
+						<Text fontSize="xl">・カードのかずが大きい人ほどがんばってください。</Text>
+						<Text fontSize="xl">・カードのかずが小さい人はがんばらないでください。</Text>
+						<Text fontSize="xl">・みんなできたら次へ行ってください</Text>
+						<Text fontSize="xl" mt="20px">・人数と名前を入力したら、好きな方のゲームに行ってね。</Text>
+					</Box>
 				) : (
 					<Box />
 				)}

@@ -36,27 +36,17 @@ function FirstPage() {
         navigate("Page2");
     };
 
-    const navigateToTutorial = () => {
-        navigate("Tutorial");
-    }
-
     return (
         <ChakraProvider>
             <Center mt="50px" flexDirection="column">
                 <Heading mb="20px">ひとりひとりに与えられた数字の大きさをゲームのうまさで表して、協力して数字順に並べられたら全員優勝するゲーム</Heading>
                 <Box mb="20px">
                     <Button colorScheme="blue" onClick={navigateToGamePage1} mr="4">
-                        ゲームページ1へ
+                        ゲーム1
                     </Button>
                     <Button colorScheme="green" onClick={navigateToGamePage2}>
-                        ゲームページ2へ
+                        ゲーム2
                     </Button>
-                    <br /><br />
-                    <center>
-                        <Button colorScheme="yellow" onClick={navigateToTutorial}>
-                            ゲームチュートリアルへ
-                        </Button>
-                    </center>
                 </Box>
                 <Box>
                     <label htmlFor="toggle">参加人数: </label>
@@ -89,8 +79,9 @@ function FirstPage() {
                         />
                     </Box>
                 ))}
+                <Text fontSize="xl" mt="20px">・人数と名前を入力したら、好きな方のゲームに行ってね。</Text>
                 <ReactPlayer
-                    url="../ sounds / Shall_we_meet？.mp3"
+                    url="../sounds/Shall_we_meet？.mp3"
                     playing={true}
                     loop={true}
                     volume={0.2}
