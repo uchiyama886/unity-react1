@@ -11,10 +11,10 @@ import {
 } from "@chakra-ui/react";
 
 const unityContext = new UnityContext({
-    loaderUrl: "Build/fuusenn.loader.js",
-    dataUrl: "Build/fuusenn.data",
-    frameworkUrl: "Build/fuusenn.framework.js",
-    codeUrl: "Build/fuusenn.wasm",
+    loaderUrl: "Build/tap.loader.js",
+    dataUrl: "Build/tap.data",
+    frameworkUrl: "Build/tap.framework.js",
+    codeUrl: "Build/tap.wasm",
 });
 
 function GamePage1({ id }) {
