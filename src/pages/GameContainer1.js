@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { usePlayer } from "./PlayerConfig";
-import GamePage1 from "./gamePage2";
+import GamePage1 from "./gamePage1";
 import { useNavigate } from "react-router-dom";
 import {
     ChakraProvider,
